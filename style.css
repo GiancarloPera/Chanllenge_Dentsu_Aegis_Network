@@ -1,4 +1,11 @@
 .header{
     margin-left: 20px;
-    
 }
+.container div {
+    display: inline-block;
+	width: 450px;
+	height: 350px;
+  }
+  #bloc_1{
+      margin: 30px 100px 0 20px;
+  }
