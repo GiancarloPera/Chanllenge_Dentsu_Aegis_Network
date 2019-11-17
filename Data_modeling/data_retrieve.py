@@ -42,6 +42,10 @@ def call_data_merged():
     df = df.drop(['os_type','id'], axis=1)
     df = df.rename({'name':'os_name'}, axis=1)
 
+    # split city from state
+    df['stato'] = df.prima_citta.str.split('-', expand=True)[0]
+    df['citta'] = df.prima_citta.str.split('-', expand=True)[1]
+
     df.head()
     df.to_csv(r".\Data\processed_data\data_merged.csv", sep=';')
     return df

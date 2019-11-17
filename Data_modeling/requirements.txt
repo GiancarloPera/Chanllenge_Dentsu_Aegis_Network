@@ -1,4 +1,0 @@
-I used visual studio code, with python and jupyter extension
-
-Thia are the packages i used:
-pandas as pd
