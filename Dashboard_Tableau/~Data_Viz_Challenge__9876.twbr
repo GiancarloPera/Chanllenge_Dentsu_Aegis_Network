@@ -1,0 +1,2675 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20194.19.1010.1202                               -->
+<workbook source-build='2019.4.0 (20194.19.1010.1202)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts ignorable='true' predowngraded='true' />
+    <BasicButtonObject />
+    <MapboxVectorStylesAndLayers />
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <SortTagCleanup />
+    <VizInTooltipHideWorksheet />
+    <WindowsPersistSimpleIdentifiers />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='10000'>
+        <calculation class='tableau' formula='10000' />
+        <range max='10000' />
+      </column>
+    </datasource>
+    <datasource caption='data_merged' inline='true' name='federated.1q9a96t0nzyi811bvx4w71u3oa7p' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='data_merged' name='textscan.0r4m39506o0fsw1aw9glf0m3xmub'>
+            <connection class='textscan' directory='C:/Users/PC/Documents/Gian/Chanllenge_Dentsu_Aegis_Network/Data/processed_data' filename='data_merged.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='Province' name='excel-direct.0jei4w40the2wp11dcufq0xfubn8'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/PC/Documents/Gian/Chanllenge_Dentsu_Aegis_Network/Province.xls' interpretationMode='0' password='' port='0' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation join='left' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='right([data_merged.csv].[prima_citta],2)' />
+              <expression op='[CodProv].[F4]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.0r4m39506o0fsw1aw9glf0m3xmub' name='data_merged.csv' table='[data_merged#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='it_IT' separator=';'>
+              <column datatype='integer' name='F1' ordinal='0' />
+              <column datatype='integer' name='uuid' ordinal='1' />
+              <column datatype='date' name='giorno_min' ordinal='2' />
+              <column datatype='date' name='giorno_max' ordinal='3' />
+              <column datatype='integer' name='durata_vita' ordinal='4' />
+              <column datatype='integer' name='conteggio_giorni_totale' ordinal='5' />
+              <column datatype='integer' name='site_giallozafferano' ordinal='6' />
+              <column datatype='integer' name='site_repubblica' ordinal='7' />
+              <column datatype='integer' name='site_subito' ordinal='8' />
+              <column datatype='integer' name='site_ansa' ordinal='9' />
+              <column datatype='integer' name='site_kijiji' ordinal='10' />
+              <column datatype='integer' name='site_corriere' ordinal='11' />
+              <column datatype='integer' name='site_ebay' ordinal='12' />
+              <column datatype='integer' name='site_pianetadonna' ordinal='13' />
+              <column datatype='integer' name='site_aranzulla' ordinal='14' />
+              <column datatype='integer' name='site_greenme' ordinal='15' />
+              <column datatype='integer' name='site_gazzetta' ordinal='16' />
+              <column datatype='integer' name='site_sole24ore' ordinal='17' />
+              <column datatype='integer' name='site_pourfemme' ordinal='18' />
+              <column datatype='integer' name='site_alfemminile' ordinal='19' />
+              <column datatype='integer' name='site_corrieresport' ordinal='20' />
+              <column datatype='integer' name='site_cookaround' ordinal='21' />
+              <column datatype='integer' name='site_autoscout' ordinal='22' />
+              <column datatype='integer' name='site_staseratv' ordinal='23' />
+              <column datatype='string' name='prima_citta' ordinal='24' />
+              <column datatype='string' name='browser_name' ordinal='25' />
+              <column datatype='string' name='device_name' ordinal='26' />
+              <column datatype='string' name='os_name' ordinal='27' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.0jei4w40the2wp11dcufq0xfubn8' name='CodProv' table='[CodProv$]' type='table'>
+            <columns gridOrigin='A1:E106:no:A1:E106:0' header='no' outcome='2'>
+              <column datatype='integer' name='F1' ordinal='0' />
+              <column datatype='string' name='F2' ordinal='1' />
+              <column datatype='integer' name='F3' ordinal='2' />
+              <column datatype='string' name='F4' ordinal='3' />
+              <column datatype='string' name='F5' ordinal='4' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[F1 (CodProv)]' value='[CodProv].[F1]' />
+          <map key='[F1]' value='[data_merged.csv].[F1]' />
+          <map key='[F2]' value='[CodProv].[F2]' />
+          <map key='[F3]' value='[CodProv].[F3]' />
+          <map key='[F4]' value='[CodProv].[F4]' />
+          <map key='[F5]' value='[CodProv].[F5]' />
+          <map key='[browser_name]' value='[data_merged.csv].[browser_name]' />
+          <map key='[conteggio_giorni_totale]' value='[data_merged.csv].[conteggio_giorni_totale]' />
+          <map key='[device_name]' value='[data_merged.csv].[device_name]' />
+          <map key='[durata_vita]' value='[data_merged.csv].[durata_vita]' />
+          <map key='[giorno_max]' value='[data_merged.csv].[giorno_max]' />
+          <map key='[giorno_min]' value='[data_merged.csv].[giorno_min]' />
+          <map key='[os_name]' value='[data_merged.csv].[os_name]' />
+          <map key='[prima_citta]' value='[data_merged.csv].[prima_citta]' />
+          <map key='[site_alfemminile]' value='[data_merged.csv].[site_alfemminile]' />
+          <map key='[site_ansa]' value='[data_merged.csv].[site_ansa]' />
+          <map key='[site_aranzulla]' value='[data_merged.csv].[site_aranzulla]' />
+          <map key='[site_autoscout]' value='[data_merged.csv].[site_autoscout]' />
+          <map key='[site_cookaround]' value='[data_merged.csv].[site_cookaround]' />
+          <map key='[site_corriere]' value='[data_merged.csv].[site_corriere]' />
+          <map key='[site_corrieresport]' value='[data_merged.csv].[site_corrieresport]' />
+          <map key='[site_ebay]' value='[data_merged.csv].[site_ebay]' />
+          <map key='[site_gazzetta]' value='[data_merged.csv].[site_gazzetta]' />
+          <map key='[site_giallozafferano]' value='[data_merged.csv].[site_giallozafferano]' />
+          <map key='[site_greenme]' value='[data_merged.csv].[site_greenme]' />
+          <map key='[site_kijiji]' value='[data_merged.csv].[site_kijiji]' />
+          <map key='[site_pianetadonna]' value='[data_merged.csv].[site_pianetadonna]' />
+          <map key='[site_pourfemme]' value='[data_merged.csv].[site_pourfemme]' />
+          <map key='[site_repubblica]' value='[data_merged.csv].[site_repubblica]' />
+          <map key='[site_sole24ore]' value='[data_merged.csv].[site_sole24ore]' />
+          <map key='[site_staseratv]' value='[data_merged.csv].[site_staseratv]' />
+          <map key='[site_subito]' value='[data_merged.csv].[site_subito]' />
+          <map key='[uuid]' value='[data_merged.csv].[uuid]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;it&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;€&quot;</attribute>
+              <attribute datatype='string' name='debit-close-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='debit-open-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;;&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;it_IT&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot;.&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>uuid</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[uuid]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>uuid</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>giorno_min</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[giorno_min]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>giorno_min</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>giorno_max</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[giorno_max]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>giorno_max</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>durata_vita</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[durata_vita]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>durata_vita</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>conteggio_giorni_totale</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[conteggio_giorni_totale]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>conteggio_giorni_totale</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_giallozafferano</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_giallozafferano]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_giallozafferano</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_repubblica</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_repubblica]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_repubblica</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_subito</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_subito]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_subito</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_ansa</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_ansa]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_ansa</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_kijiji</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_kijiji]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_kijiji</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_corriere</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_corriere]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_corriere</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_ebay</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_ebay]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_ebay</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_pianetadonna</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_pianetadonna]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_pianetadonna</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_aranzulla</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_aranzulla]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_aranzulla</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_greenme</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_greenme]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_greenme</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_gazzetta</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_gazzetta]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_gazzetta</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_sole24ore</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_sole24ore]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_sole24ore</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_pourfemme</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_pourfemme]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_pourfemme</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_alfemminile</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_alfemminile]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_alfemminile</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_corrieresport</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_corrieresport]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_corrieresport</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_cookaround</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_cookaround]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_cookaround</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_autoscout</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_autoscout]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_autoscout</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>site_staseratv</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[site_staseratv]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>site_staseratv</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>prima_citta</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[prima_citta]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>prima_citta</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LIT_RIT' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>browser_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[browser_name]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>browser_name</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LIT_RIT' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>device_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[device_name]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>device_name</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LIT_RIT' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>os_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[os_name]</local-name>
+            <parent-name>[data_merged.csv]</parent-name>
+            <remote-alias>os_name</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LIT_RIT' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1 (CodProv)]</local-name>
+            <parent-name>[CodProv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F2</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F2]</local-name>
+            <parent-name>[CodProv]</parent-name>
+            <remote-alias>F2</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LIT_RIT_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F3</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F3]</local-name>
+            <parent-name>[CodProv]</parent-name>
+            <remote-alias>F3</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F4</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F4]</local-name>
+            <parent-name>[CodProv]</parent-name>
+            <remote-alias>F4</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LIT_RIT_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F5</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F5]</local-name>
+            <parent-name>[CodProv]</parent-name>
+            <remote-alias>F5</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LIT_RIT_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[CodProv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:E106:no:A1:E106:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>false</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='string' name='[:Measure Names]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:Calculation_808396189090537487:qk]&quot;' value='Site Repubblica' />
+          <alias key='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189086994443:qk]&quot;' value='% Giorni effettivi' />
+          <alias key='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189107634213:qk]&quot;' value='Click per user' />
+          <alias key='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189107925030:qk]&quot;' value='Click per User' />
+        </aliases>
+      </column>
+      <column caption='Unique page views' datatype='integer' name='[Calculation_752664143844503553]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNTD(if [site_alfemminile]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_ansa]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_aranzulla]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_autoscout]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_cookaround]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_corriere]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_corrieresport]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_ebay]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_gazzetta]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_giallozafferano]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_greenme]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_kijiji]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_pianetadonna]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_pourfemme]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_repubblica]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_sole24ore]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_staseratv]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_subito]&gt;0 then 1 else NULL end)' />
+      </column>
+      <column caption='Indicatore di attivita' datatype='real' name='[Calculation_808396189075845123]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[conteggio_giorni_totale]*log([durata_vita])/[durata_vita]' />
+      </column>
+      <column caption='Sites di Notizia' datatype='integer' name='[Calculation_808396189096075287]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='sum([site_corriere]) + &#13;&#10;sum([site_repubblica]) +&#13;&#10;sum([site_ansa]) +&#13;&#10;sum([site_sole24ore])' />
+      </column>
+      <column caption='Sites per Lui' datatype='integer' name='[Calculation_808396189096370200]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='sum([site_autoscout]) +&#13;&#10;sum([site_corrieresport]) +&#13;&#10;sum([site_gazzetta]) +&#13;&#10;sum([site_aranzulla])' />
+      </column>
+      <column caption='Sites di Vendita Online' datatype='integer' name='[Calculation_808396189096587289]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='sum([site_ebay]) +&#13;&#10;sum([site_kijiji]) +&#13;&#10;sum([site_subito])' />
+      </column>
+      <column caption='Sites per Lei' datatype='integer' name='[Calculation_808396189096882202]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='sum([site_alfemminile]) +&#13;&#10;sum([site_cookaround]) +&#13;&#10;sum([site_giallozafferano]) +&#13;&#10;sum([site_pianetadonna]) +&#13;&#10;sum([site_pourfemme]) +&#13;&#10;sum([site_staseratv]) +&#13;&#10;sum([site_greenme])' />
+      </column>
+      <column caption='Site max value' datatype='integer' name='[Calculation_808396189099130909]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='if [Calculation_808396189096075287]&gt;[Calculation_808396189096370200] or [Calculation_808396189096075287]&gt;[Calculation_808396189096882202] or [Calculation_808396189096075287]&gt;[Calculation_808396189096587289]&#13;&#10;then [Calculation_808396189096075287]&#13;&#10;ELSEIF [Calculation_808396189096370200] &gt; [Calculation_808396189096882202] or [Calculation_808396189096370200]&gt;[Calculation_808396189096587289]&#13;&#10;then [Calculation_808396189096370200]&#13;&#10;ELSEIF [Calculation_808396189096882202] &gt; [Calculation_808396189096587289]&#13;&#10;then [Calculation_808396189096882202]&#13;&#10;else [Calculation_808396189096587289]&#13;&#10;end' />
+      </column>
+      <column caption='Sites category' datatype='string' name='[Calculation_808396189100253214]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='if [Calculation_808396189096075287]&gt;[Calculation_808396189096370200] or [Calculation_808396189096075287]&gt;[Calculation_808396189096882202] or [Calculation_808396189096075287]&gt;[Calculation_808396189096587289]&#13;&#10;then &apos;Notizia&apos;&#13;&#10;ELSEIF [Calculation_808396189096370200] &gt; [Calculation_808396189096882202] or [Calculation_808396189096370200]&gt;[Calculation_808396189096587289]&#13;&#10;then &apos;Per Lui&apos;&#13;&#10;ELSEIF [Calculation_808396189096882202] &gt; [Calculation_808396189096587289]&#13;&#10;then &apos;Per Lei&apos;&#13;&#10;else &apos;Vendita Online&apos;&#13;&#10;end' />
+      </column>
+      <column datatype='integer' hidden='true' name='[F1 (CodProv)]' role='measure' type='quantitative' />
+      <column datatype='integer' hidden='true' name='[F1]' role='measure' type='quantitative' />
+      <column datatype='integer' hidden='true' name='[F3]' role='measure' type='quantitative' />
+      <column caption='Citta_sigla' datatype='string' name='[F4]' role='dimension' type='nominal' />
+      <column aggregation='None' caption='Citta_ita' datatype='string' name='[F5]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Browser Name' datatype='string' name='[browser_name]' role='dimension' type='nominal' />
+      <column caption='Conteggio Giorni Totale' datatype='integer' name='[conteggio_giorni_totale]' role='measure' type='quantitative' />
+      <column caption='Device Name' datatype='string' name='[device_name]' role='dimension' type='nominal' />
+      <column caption='Durata Vita' datatype='integer' name='[durata_vita]' role='measure' type='quantitative' />
+      <column caption='Giorno Max' datatype='date' name='[giorno_max]' role='dimension' type='ordinal' />
+      <column caption='Giorno Min' datatype='date' name='[giorno_min]' role='dimension' type='ordinal' />
+      <column caption='Os Name' datatype='string' name='[os_name]' role='dimension' type='nominal' />
+      <column caption='Citta' datatype='string' name='[prima_citta - Split 1]' role='dimension' semantic-role='' type='nominal' user:SplitFieldIndex='1' user:SplitFieldOrigin='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[prima_citta]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( SPLIT( [prima_citta], &quot;ITA&quot;, 2 ), &quot;-&quot;, 2 ) )' />
+      </column>
+      <column caption='Prima Citta' datatype='string' name='[prima_citta]' role='dimension' type='nominal' />
+      <column caption='Site Alfemminile' datatype='integer' name='[site_alfemminile]' role='measure' type='quantitative' />
+      <column caption='Site Ansa' datatype='integer' name='[site_ansa]' role='measure' type='quantitative' />
+      <column caption='Site Aranzulla' datatype='integer' name='[site_aranzulla]' role='measure' type='quantitative' />
+      <column caption='Site Autoscout' datatype='integer' name='[site_autoscout]' role='measure' type='quantitative' />
+      <column caption='Site Cookaround' datatype='integer' name='[site_cookaround]' role='measure' type='quantitative' />
+      <column caption='Site Corriere' datatype='integer' name='[site_corriere]' role='measure' type='quantitative' />
+      <column caption='Site Corrieresport' datatype='integer' name='[site_corrieresport]' role='measure' type='quantitative' />
+      <column caption='Site Ebay' datatype='integer' name='[site_ebay]' role='measure' type='quantitative' />
+      <column caption='Site Gazzetta' datatype='integer' name='[site_gazzetta]' role='measure' type='quantitative' />
+      <column caption='Site Giallozafferano' datatype='integer' name='[site_giallozafferano]' role='measure' type='quantitative' />
+      <column caption='Site Greenme' datatype='integer' name='[site_greenme]' role='measure' type='quantitative' />
+      <column caption='Site Kijiji' datatype='integer' name='[site_kijiji]' role='measure' type='quantitative' />
+      <column caption='Site Pianetadonna' datatype='integer' name='[site_pianetadonna]' role='measure' type='quantitative' />
+      <column caption='Site Pourfemme' datatype='integer' name='[site_pourfemme]' role='measure' type='quantitative' />
+      <column caption='Site Repubblica' datatype='integer' name='[site_repubblica]' role='measure' type='quantitative' />
+      <column caption='Site Sole24Ore' datatype='integer' name='[site_sole24ore]' role='measure' type='quantitative' />
+      <column caption='Site Staseratv' datatype='integer' name='[site_staseratv]' role='measure' type='quantitative' />
+      <column caption='Site Subito' datatype='integer' name='[site_subito]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Uuid' datatype='integer' name='[uuid]' role='dimension' type='ordinal' />
+      <column-instance column='[device_name]' derivation='None' name='[none:device_name:nk]' pivot='key' type='nominal' />
+      <column-instance column='[site_alfemminile]' derivation='Sum' name='[sum:site_alfemminile:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[site_ansa]' derivation='Sum' name='[sum:site_ansa:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[site_aranzulla]' derivation='Sum' name='[sum:site_aranzulla:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[site_autoscout]' derivation='Sum' name='[sum:site_autoscout:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[site_cookaround]' derivation='Sum' name='[sum:site_cookaround:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[site_corriere]' derivation='Sum' name='[sum:site_corriere:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[site_corrieresport]' derivation='Sum' name='[sum:site_corrieresport:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[site_ebay]' derivation='Sum' name='[sum:site_ebay:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[site_gazzetta]' derivation='Sum' name='[sum:site_gazzetta:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[site_giallozafferano]' derivation='Sum' name='[sum:site_giallozafferano:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[site_greenme]' derivation='Sum' name='[sum:site_greenme:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[site_kijiji]' derivation='Sum' name='[sum:site_kijiji:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[site_pianetadonna]' derivation='Sum' name='[sum:site_pianetadonna:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[site_pourfemme]' derivation='Sum' name='[sum:site_pourfemme:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[site_repubblica]' derivation='Sum' name='[sum:site_repubblica:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[site_sole24ore]' derivation='Sum' name='[sum:site_sole24ore:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_808396189100253214]' derivation='User' name='[usr:Calculation_808396189100253214:nk]' pivot='key' type='nominal' />
+      <group caption='Action (Browser Name)' hidden='true' name='[Action (Browser Name)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[browser_name]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Citta_ita)' hidden='true' name='[Action (Citta_ita)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[F5]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Uuid)' hidden='true' name='[Action (Uuid)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[uuid]' />
+        </groupfilter>
+      </group>
+      <group caption='Tooltip (Uuid)' hidden='true' name='[Tooltip (Uuid)]' name-style='unqualified' user:auto-column='sheet_link' user:ui-vit-column='true'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[uuid]' />
+        </groupfilter>
+      </group>
+      <drill-paths>
+        <drill-path name='Os,Device,Browser'>
+          <field>[os_name]</field>
+          <field>[device_name]</field>
+          <field>[browser_name]</field>
+        </drill-path>
+      </drill-paths>
+      <extract count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_GB' class='hyper' dbname='C:/Users/PC/Documents/Gian/Chanllenge_Dentsu_Aegis_Network/Dashboard_Tableau/data_merged_extract.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='11/17/2019 09:38:14 AM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <refresh>
+            <refresh-event add-from-file-path='data_merged' increment-value='%null%' refresh-type='create' rows-inserted='10000' timestamp-start='2019-11-17 09:38:14.632' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>uuid</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[uuid]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>uuid</remote-alias>
+              <ordinal>0</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>10000</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>giorno_min</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[giorno_min]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>giorno_min</remote-alias>
+              <ordinal>1</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>484</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>giorno_max</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[giorno_max]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>giorno_max</remote-alias>
+              <ordinal>2</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>32</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>durata_vita</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[durata_vita]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>durata_vita</remote-alias>
+              <ordinal>3</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>499</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>conteggio_giorni_totale</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[conteggio_giorni_totale]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>conteggio_giorni_totale</remote-alias>
+              <ordinal>4</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>311</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_giallozafferano</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_giallozafferano]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_giallozafferano</remote-alias>
+              <ordinal>5</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>21</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_repubblica</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_repubblica]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_repubblica</remote-alias>
+              <ordinal>6</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>54</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_subito</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_subito]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_subito</remote-alias>
+              <ordinal>7</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>27</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_ansa</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_ansa]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_ansa</remote-alias>
+              <ordinal>8</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>43</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_kijiji</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_kijiji]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_kijiji</remote-alias>
+              <ordinal>9</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>21</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_corriere</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_corriere]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_corriere</remote-alias>
+              <ordinal>10</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>36</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_ebay</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_ebay]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_ebay</remote-alias>
+              <ordinal>11</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_pianetadonna</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_pianetadonna]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_pianetadonna</remote-alias>
+              <ordinal>12</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_aranzulla</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_aranzulla]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_aranzulla</remote-alias>
+              <ordinal>13</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>18</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_greenme</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_greenme]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_greenme</remote-alias>
+              <ordinal>14</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_gazzetta</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_gazzetta]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_gazzetta</remote-alias>
+              <ordinal>15</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>60</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_sole24ore</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_sole24ore]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_sole24ore</remote-alias>
+              <ordinal>16</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>21</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_pourfemme</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_pourfemme]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_pourfemme</remote-alias>
+              <ordinal>17</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>11</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_alfemminile</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_alfemminile]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_alfemminile</remote-alias>
+              <ordinal>18</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>17</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_corrieresport</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_corrieresport]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_corrieresport</remote-alias>
+              <ordinal>19</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>44</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_cookaround</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_cookaround]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_cookaround</remote-alias>
+              <ordinal>20</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_autoscout</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_autoscout]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_autoscout</remote-alias>
+              <ordinal>21</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>31</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>site_staseratv</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[site_staseratv]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>site_staseratv</remote-alias>
+              <ordinal>22</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>39</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>prima_citta</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[prima_citta]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>prima_citta</remote-alias>
+              <ordinal>23</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>135</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LIT_RIT' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>browser_name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[browser_name]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>browser_name</remote-alias>
+              <ordinal>24</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>43</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LIT_RIT' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>device_name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[device_name]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>device_name</remote-alias>
+              <ordinal>25</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LIT_RIT' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>os_name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[os_name]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>os_name</remote-alias>
+              <ordinal>26</ordinal>
+              <family>data_merged.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LIT_RIT' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F2</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[F2]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F2</remote-alias>
+              <ordinal>27</ordinal>
+              <family>CodProv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>23</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LIT_RIT' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F4</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[F4]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F4</remote-alias>
+              <ordinal>28</ordinal>
+              <family>CodProv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>128</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LIT_RIT' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F5</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[F5]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F5</remote-alias>
+              <ordinal>29</ordinal>
+              <family>CodProv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>128</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LIT_RIT' />
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' dim-percentage='0.308564' group-percentage='0.112091' measure-ordering='alphabetic' measure-percentage='0.547859' parameter-percentage='0.0314861' rowDisplayCount='999999' show-hidden-fields='true' show-structure='true' user-set-layout='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:device_name:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Mobile&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Unknown&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Tablet&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;TV&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Desktop and Laptop&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_aranzulla:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_autoscout:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_corrieresport:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_gazzetta:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_ansa:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_corriere:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_repubblica:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_sole24ore:qk]&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_ebay:qk]&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_kijiji:qk]&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_alfemminile:qk]&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_cookaround:qk]&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_giallozafferano:qk]&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_greenme:qk]&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_pianetadonna:qk]&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_pourfemme:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[usr:Calculation_808396189100253214:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Per Lui&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Notizia&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;Vendita Online&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;Per Lei&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Italy&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <actions>
+    <action caption='Filter 1 (generated)' name='[Action1]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='User Activity' type='sheet' worksheet='Map' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='User Activity' />
+      </command>
+    </action>
+    <action caption='Filter1' name='[Action2]'>
+      <activation auto-clear='true' type='on-hover' />
+      <source dashboard='User Activity' type='sheet'>
+        <exclude-sheet name='KPI' />
+      </source>
+      <command command='tsc:tsl-filter'>
+        <param name='exclude' value='Map' />
+        <param name='special-fields' value='all' />
+        <param name='target' value='User Activity' />
+      </command>
+    </action>
+    <action caption='Filter 2 (generated)' name='[Action3]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Browser view' type='sheet' worksheet='Browser più usati' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Browser view' />
+      </command>
+    </action>
+  </actions>
+  <worksheets>
+    <worksheet name='Acquisition per device'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='data_merged' name='federated.1q9a96t0nzyi811bvx4w71u3oa7p' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1q9a96t0nzyi811bvx4w71u3oa7p'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Browser Name' datatype='string' name='[browser_name]' role='dimension' type='nominal' />
+            <column caption='Device Name' datatype='string' name='[device_name]' role='dimension' type='nominal' />
+            <column caption='Giorno Min' datatype='date' name='[giorno_min]' role='dimension' type='ordinal' />
+            <column-instance column='[device_name]' derivation='None' name='[none:device_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[giorno_min]' derivation='Day-Trunc' name='[tdy:giorno_min:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[giorno_min]' derivation='Year' name='[yr:giorno_min:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Action (Browser Name)]'>
+            <groupfilter function='level-members' level='[browser_name]' user:ui-action-filter='[Action3]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <computed-sort column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[none:device_name:nk]' direction='DESC' using='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:Number of Records:qk]' />
+          <filter class='categorical' column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[yr:giorno_min:ok]' filter-group='3'>
+            <groupfilter function='member' level='[yr:giorno_min:ok]' member='2018' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[yr:giorno_min:ok]</column>
+            <column>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Action (Browser Name)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='display' class='0' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:Number of Records:qk]' scope='rows' value='false' />
+            <format attr='title' class='0' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[tdy:giorno_min:qk]' scope='cols' value='Giorno acquisizione user' />
+          </style-rule>
+          <style-rule element='quick-filter'>
+            <format attr='title' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[yr:giorno_min:ok]' value='Anno acquisizione user'>
+              <formatted-text>
+                <run>Anno acquisizione user</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <text column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:Number of Records:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1q9a96t0nzyi811bvx4w71u3oa7p].[none:device_name:nk] * [federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:Number of Records:qk])</rows>
+        <cols>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[tdy:giorno_min:qk]</cols>
+      </table>
+      <simple-id uuid='{1F3AB9BA-2200-4F65-8CEA-BFB563D66EBF}' />
+    </worksheet>
+    <worksheet name='Browser più usati'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='data_merged' name='federated.1q9a96t0nzyi811bvx4w71u3oa7p' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1q9a96t0nzyi811bvx4w71u3oa7p'>
+            <column caption='([Sites di Notizia] +[Sites per Lui] +[Sites per Lei] +[Sites...' datatype='integer' name='[Calculation_752664143854292999]' role='measure' type='quantitative' user:unnamed='Sheet 9'>
+              <calculation class='tableau' formula='([Calculation_808396189096075287]&#13;&#10;+[Calculation_808396189096370200]&#13;&#10;+[Calculation_808396189096882202]&#13;&#10;+[Calculation_808396189096587289])' />
+            </column>
+            <column caption='Sites di Notizia' datatype='integer' name='[Calculation_808396189096075287]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([site_corriere]) + &#13;&#10;sum([site_repubblica]) +&#13;&#10;sum([site_ansa]) +&#13;&#10;sum([site_sole24ore])' />
+            </column>
+            <column caption='Sites per Lui' datatype='integer' name='[Calculation_808396189096370200]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([site_autoscout]) +&#13;&#10;sum([site_corrieresport]) +&#13;&#10;sum([site_gazzetta]) +&#13;&#10;sum([site_aranzulla])' />
+            </column>
+            <column caption='Sites di Vendita Online' datatype='integer' name='[Calculation_808396189096587289]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([site_ebay]) +&#13;&#10;sum([site_kijiji]) +&#13;&#10;sum([site_subito])' />
+            </column>
+            <column caption='Sites per Lei' datatype='integer' name='[Calculation_808396189096882202]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([site_alfemminile]) +&#13;&#10;sum([site_cookaround]) +&#13;&#10;sum([site_giallozafferano]) +&#13;&#10;sum([site_pianetadonna]) +&#13;&#10;sum([site_pourfemme]) +&#13;&#10;sum([site_staseratv]) +&#13;&#10;sum([site_greenme])' />
+            </column>
+            <column caption='Browser Name' datatype='string' name='[browser_name]' role='dimension' type='nominal' />
+            <column caption='Giorno Min' datatype='date' name='[giorno_min]' role='dimension' type='ordinal' />
+            <column-instance column='[browser_name]' derivation='None' name='[none:browser_name:nk]' pivot='key' type='nominal' />
+            <column caption='Site Alfemminile' datatype='integer' name='[site_alfemminile]' role='measure' type='quantitative' />
+            <column caption='Site Ansa' datatype='integer' name='[site_ansa]' role='measure' type='quantitative' />
+            <column caption='Site Aranzulla' datatype='integer' name='[site_aranzulla]' role='measure' type='quantitative' />
+            <column caption='Site Autoscout' datatype='integer' name='[site_autoscout]' role='measure' type='quantitative' />
+            <column caption='Site Cookaround' datatype='integer' name='[site_cookaround]' role='measure' type='quantitative' />
+            <column caption='Site Corriere' datatype='integer' name='[site_corriere]' role='measure' type='quantitative' />
+            <column caption='Site Corrieresport' datatype='integer' name='[site_corrieresport]' role='measure' type='quantitative' />
+            <column caption='Site Ebay' datatype='integer' name='[site_ebay]' role='measure' type='quantitative' />
+            <column caption='Site Gazzetta' datatype='integer' name='[site_gazzetta]' role='measure' type='quantitative' />
+            <column caption='Site Giallozafferano' datatype='integer' name='[site_giallozafferano]' role='measure' type='quantitative' />
+            <column caption='Site Greenme' datatype='integer' name='[site_greenme]' role='measure' type='quantitative' />
+            <column caption='Site Kijiji' datatype='integer' name='[site_kijiji]' role='measure' type='quantitative' />
+            <column caption='Site Pianetadonna' datatype='integer' name='[site_pianetadonna]' role='measure' type='quantitative' />
+            <column caption='Site Pourfemme' datatype='integer' name='[site_pourfemme]' role='measure' type='quantitative' />
+            <column caption='Site Repubblica' datatype='integer' name='[site_repubblica]' role='measure' type='quantitative' />
+            <column caption='Site Sole24Ore' datatype='integer' name='[site_sole24ore]' role='measure' type='quantitative' />
+            <column caption='Site Staseratv' datatype='integer' name='[site_staseratv]' role='measure' type='quantitative' />
+            <column caption='Site Subito' datatype='integer' name='[site_subito]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_752664143854292999]' derivation='User' name='[usr:Calculation_752664143854292999:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[giorno_min]' derivation='Year' name='[yr:giorno_min:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[yr:giorno_min:ok]' filter-group='3'>
+            <groupfilter function='member' level='[yr:giorno_min:ok]' member='2018' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[yr:giorno_min:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_752664143854292999:qk]' palette='green_gold_10_0' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Text' />
+            <encodings>
+              <color column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_752664143854292999:qk]' />
+              <size column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_752664143854292999:qk]' />
+              <text column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[none:browser_name:nk]' />
+              <lod column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_752664143854292999:qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>Browser Name:&#9;</run>
+                <run bold='true'>&lt;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[none:browser_name:nk]&gt;</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Number of sites visited by this browser:&#9;</run>
+                <run bold='true'>&lt;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_752664143854292999:qk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{29F654E6-4323-495D-9B64-039F5850BE2B}' />
+    </worksheet>
+    <worksheet name='KPI'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='data_merged' name='federated.1q9a96t0nzyi811bvx4w71u3oa7p' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1q9a96t0nzyi811bvx4w71u3oa7p'>
+            <column caption='Unique page views' datatype='integer' name='[Calculation_752664143844503553]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNTD(if [site_alfemminile]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_ansa]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_aranzulla]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_autoscout]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_cookaround]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_corriere]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_corrieresport]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_ebay]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_gazzetta]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_giallozafferano]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_greenme]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_kijiji]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_pianetadonna]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_pourfemme]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_repubblica]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_sole24ore]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_staseratv]&gt;0 then 1 else NULL end)&#13;&#10;+COUNTD(if [site_subito]&gt;0 then 1 else NULL end)' />
+            </column>
+            <column caption='sum([Conteggio Giorni Totale])/sum([Durata Vita])' datatype='real' name='[Calculation_808396189086994443]' role='measure' type='quantitative' user:unnamed='KPI'>
+              <calculation class='tableau' formula='sum([conteggio_giorni_totale])/sum([durata_vita])' />
+            </column>
+            <column caption='Sites di Notizia' datatype='integer' name='[Calculation_808396189096075287]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([site_corriere]) + &#13;&#10;sum([site_repubblica]) +&#13;&#10;sum([site_ansa]) +&#13;&#10;sum([site_sole24ore])' />
+            </column>
+            <column caption='Sites per Lui' datatype='integer' name='[Calculation_808396189096370200]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([site_autoscout]) +&#13;&#10;sum([site_corrieresport]) +&#13;&#10;sum([site_gazzetta]) +&#13;&#10;sum([site_aranzulla])' />
+            </column>
+            <column caption='Sites di Vendita Online' datatype='integer' name='[Calculation_808396189096587289]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([site_ebay]) +&#13;&#10;sum([site_kijiji]) +&#13;&#10;sum([site_subito])' />
+            </column>
+            <column caption='Sites per Lei' datatype='integer' name='[Calculation_808396189096882202]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([site_alfemminile]) +&#13;&#10;sum([site_cookaround]) +&#13;&#10;sum([site_giallozafferano]) +&#13;&#10;sum([site_pianetadonna]) +&#13;&#10;sum([site_pourfemme]) +&#13;&#10;sum([site_staseratv]) +&#13;&#10;sum([site_greenme])' />
+            </column>
+            <column caption='SUM()' datatype='real' name='[Calculation_808396189106749474]' role='measure' type='quantitative' user:unnamed='KPI'>
+              <calculation class='tableau' formula='SUM()' />
+            </column>
+            <column caption='([Sites di Notizia] +[Sites per Lui] +[Sites per Lei] +[Sites...' datatype='real' name='[Calculation_808396189107925030]' role='measure' type='quantitative' user:unnamed='KPI'>
+              <calculation class='tableau' formula='([Calculation_808396189096075287]&#13;&#10;+[Calculation_808396189096370200]&#13;&#10;+[Calculation_808396189096882202]&#13;&#10;+[Calculation_808396189096587289])/COUNTD([uuid])' />
+            </column>
+            <column aggregation='None' caption='Citta_ita' datatype='string' name='[F5]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column-instance column='[conteggio_giorni_totale]' derivation='Avg' name='[avg:conteggio_giorni_totale:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[durata_vita]' derivation='Avg' name='[avg:durata_vita:qk]' pivot='key' type='quantitative' />
+            <column caption='Conteggio Giorni Totale' datatype='integer' name='[conteggio_giorni_totale]' role='measure' type='quantitative' />
+            <column caption='Durata Vita' datatype='integer' name='[durata_vita]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_808396189106749474]' derivation='None' name='[none:Calculation_808396189106749474:qk]' pivot='key' type='quantitative' />
+            <column caption='Site Alfemminile' datatype='integer' name='[site_alfemminile]' role='measure' type='quantitative' />
+            <column caption='Site Ansa' datatype='integer' name='[site_ansa]' role='measure' type='quantitative' />
+            <column caption='Site Aranzulla' datatype='integer' name='[site_aranzulla]' role='measure' type='quantitative' />
+            <column caption='Site Autoscout' datatype='integer' name='[site_autoscout]' role='measure' type='quantitative' />
+            <column caption='Site Cookaround' datatype='integer' name='[site_cookaround]' role='measure' type='quantitative' />
+            <column caption='Site Corriere' datatype='integer' name='[site_corriere]' role='measure' type='quantitative' />
+            <column caption='Site Corrieresport' datatype='integer' name='[site_corrieresport]' role='measure' type='quantitative' />
+            <column caption='Site Ebay' datatype='integer' name='[site_ebay]' role='measure' type='quantitative' />
+            <column caption='Site Gazzetta' datatype='integer' name='[site_gazzetta]' role='measure' type='quantitative' />
+            <column caption='Site Giallozafferano' datatype='integer' name='[site_giallozafferano]' role='measure' type='quantitative' />
+            <column caption='Site Greenme' datatype='integer' name='[site_greenme]' role='measure' type='quantitative' />
+            <column caption='Site Kijiji' datatype='integer' name='[site_kijiji]' role='measure' type='quantitative' />
+            <column caption='Site Pianetadonna' datatype='integer' name='[site_pianetadonna]' role='measure' type='quantitative' />
+            <column caption='Site Pourfemme' datatype='integer' name='[site_pourfemme]' role='measure' type='quantitative' />
+            <column caption='Site Repubblica' datatype='integer' name='[site_repubblica]' role='measure' type='quantitative' />
+            <column caption='Site Sole24Ore' datatype='integer' name='[site_sole24ore]' role='measure' type='quantitative' />
+            <column caption='Site Staseratv' datatype='integer' name='[site_staseratv]' role='measure' type='quantitative' />
+            <column caption='Site Subito' datatype='integer' name='[site_subito]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_752664143844503553]' derivation='User' name='[usr:Calculation_752664143844503553:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_808396189086994443]' derivation='User' name='[usr:Calculation_808396189086994443:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_808396189107925030]' derivation='User' name='[usr:Calculation_808396189107925030:qk]' pivot='key' type='quantitative' />
+            <column aggregation='Sum' caption='Uuid' datatype='integer' name='[uuid]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[avg:durata_vita:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[avg:conteggio_giorni_totale:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189086994443:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189107925030:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_752664143844503553:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[avg:durata_vita:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[avg:conteggio_giorni_totale:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189086994443:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[none:Calculation_808396189106749474:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='categorical' column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Action (Citta_ita)]'>
+            <groupfilter function='level-members' level='[F5]' user:ui-action-filter='[Action1]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Action (Uuid)]'>
+            <groupfilter function='level-members' level='[uuid]' user:ui-action-filter='[Action2]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[:Measure Names]</column>
+            <column>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Action (Citta_ita)]</column>
+            <column>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Action (Uuid)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='tick-color' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Multiple Values]' value='#00000000' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[:Measure Names]' value='199' />
+            <format attr='font-size' value='20' />
+            <format attr='text-format' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[avg:conteggio_giorni_totale:qk]' value='' />
+            <format attr='text-align' data-class='subtotal' scope='rows' value='auto' />
+            <format attr='text-align' data-class='total' scope='rows' value='auto' />
+            <format attr='text-align' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Multiple Values]' value='center' />
+            <format attr='height' value='37' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-width' data-class='subtotal' value='0' />
+            <format attr='border-style' data-class='subtotal' value='none' />
+            <format attr='text-align' data-class='subtotal' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[:Measure Names]' value='auto' />
+            <format attr='text-align' data-class='total' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[:Measure Names]' value='auto' />
+            <format attr='text-align' data-class='subtotal' scope='rows' value='auto' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='font-size' value='10' />
+            <format attr='text-align' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[:Measure Names]' value='center' />
+            <format attr='text-align' scope='cols' value='auto' />
+            <format attr='text-align' scope='rows' value='auto' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-width' data-class='subtotal' value='0' />
+            <format attr='border-style' data-class='subtotal' value='none' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='font-size' value='9' />
+          </style-rule>
+          <style-rule element='dropline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[:Measure Names]' />
+              <text column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Multiple Values]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+              <style-rule element='trendline'>
+                <format attr='stroke-size' value='0' />
+                <format attr='line-visibility' value='off' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[:Measure Names]</cols>
+      </table>
+      <simple-id uuid='{9395A281-F91D-4370-B8EC-499EBF8125C8}' />
+    </worksheet>
+    <worksheet name='Map'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='data_merged' name='federated.1q9a96t0nzyi811bvx4w71u3oa7p' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1q9a96t0nzyi811bvx4w71u3oa7p'>
+            <column caption='SUM([Conteggio Giorni Totale])/COUNTD([Uuid])' datatype='real' name='[Calculation_808396189105086496]' role='measure' type='quantitative' user:unnamed='Map'>
+              <calculation class='tableau' formula='SUM([conteggio_giorni_totale])/COUNTD([uuid])' />
+            </column>
+            <column aggregation='None' caption='Citta_ita' datatype='string' name='[F5]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Conteggio Giorni Totale' datatype='integer' name='[conteggio_giorni_totale]' role='measure' type='quantitative' />
+            <column-instance column='[uuid]' derivation='CountD' name='[ctd:uuid:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[F5]' derivation='None' name='[none:F5:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_808396189105086496]' derivation='User' name='[usr:Calculation_808396189105086496:qk]' pivot='key' type='quantitative' />
+            <column aggregation='Sum' caption='Uuid' datatype='integer' name='[uuid]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Latitude (generated)]' included-values='non-null' />
+          <filter class='quantitative' column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Longitude (generated)]' included-values='non-null' />
+          <slices>
+            <column>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Latitude (generated)]</column>
+            <column>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Longitude (generated)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Longitude (generated)]' field-type='quantitative' max='2125141.2239273638' min='620804.92935981904' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Latitude (generated)]' field-type='quantitative' max='6162595.0948272729' min='4225333.8376095081' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='size' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[ctd:uuid:qk]' field-type='quantitative' max='2676' max-size='1' min='100' min-size='0' type='quantsize' />
+            <encoding attr='color' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189105086496:qk]' num-steps='5' type='interpolated' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='omit-on-special' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[none:F5:nk]' value='false' />
+            <format attr='break-on-special' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[none:F5:nk]' value='false' />
+            <format attr='show-null-value-warning' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[none:F5:nk]' value='false' />
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189105086496:qk]' value='Attivita rispetto agli users&#10;'>
+              <formatted-text>
+                <run>Attivita rispetto agli users&#10;</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189105086496:qk]' />
+              <lod column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[none:F5:nk]' />
+              <size column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[ctd:uuid:qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>A  </run>
+                <run bold='true'>&lt;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[none:F5:nk]&gt;  </run>
+                <run fontcolor='#787878'>ci sono  </run>
+                <run bold='true'>&lt;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[ctd:uuid:qk]&gt; </run>
+                <run fontcolor='#787878'>users, il totale di giorni di attività sul numero di utenti è:  </run>
+                <run bold='true' fontcolor='#555555'>&lt;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189105086496:qk]&gt;</run>
+                <run fontcolor='#555555'>Æ&#9;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='2.7304074764251709' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Latitude (generated)]</rows>
+        <cols>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{AF04695F-5966-4244-9517-340606BD22AC}' />
+    </worksheet>
+    <worksheet name='Most Times Visited sites'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='data_merged' name='federated.1q9a96t0nzyi811bvx4w71u3oa7p' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1q9a96t0nzyi811bvx4w71u3oa7p'>
+            <column aggregation='None' caption='Citta_ita' datatype='string' name='[F5]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column-instance column='[uuid]' derivation='None' name='[none:uuid:ok]' pivot='key' type='ordinal' />
+            <column caption='Site Alfemminile' datatype='integer' name='[site_alfemminile]' role='measure' type='quantitative' />
+            <column caption='Site Ansa' datatype='integer' name='[site_ansa]' role='measure' type='quantitative' />
+            <column caption='Site Aranzulla' datatype='integer' name='[site_aranzulla]' role='measure' type='quantitative' />
+            <column caption='Site Autoscout' datatype='integer' name='[site_autoscout]' role='measure' type='quantitative' />
+            <column caption='Site Cookaround' datatype='integer' name='[site_cookaround]' role='measure' type='quantitative' />
+            <column caption='Site Corriere' datatype='integer' name='[site_corriere]' role='measure' type='quantitative' />
+            <column caption='Site Corrieresport' datatype='integer' name='[site_corrieresport]' role='measure' type='quantitative' />
+            <column caption='Site Ebay' datatype='integer' name='[site_ebay]' role='measure' type='quantitative' />
+            <column caption='Site Gazzetta' datatype='integer' name='[site_gazzetta]' role='measure' type='quantitative' />
+            <column caption='Site Giallozafferano' datatype='integer' name='[site_giallozafferano]' role='measure' type='quantitative' />
+            <column caption='Site Greenme' datatype='integer' name='[site_greenme]' role='measure' type='quantitative' />
+            <column caption='Site Kijiji' datatype='integer' name='[site_kijiji]' role='measure' type='quantitative' />
+            <column caption='Site Pianetadonna' datatype='integer' name='[site_pianetadonna]' role='measure' type='quantitative' />
+            <column caption='Site Pourfemme' datatype='integer' name='[site_pourfemme]' role='measure' type='quantitative' />
+            <column caption='Site Repubblica' datatype='integer' name='[site_repubblica]' role='measure' type='quantitative' />
+            <column caption='Site Sole24Ore' datatype='integer' name='[site_sole24ore]' role='measure' type='quantitative' />
+            <column-instance column='[site_alfemminile]' derivation='Sum' name='[sum:site_alfemminile:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[site_ansa]' derivation='Sum' name='[sum:site_ansa:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[site_aranzulla]' derivation='Sum' name='[sum:site_aranzulla:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[site_autoscout]' derivation='Sum' name='[sum:site_autoscout:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[site_cookaround]' derivation='Sum' name='[sum:site_cookaround:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[site_corriere]' derivation='Sum' name='[sum:site_corriere:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[site_corrieresport]' derivation='Sum' name='[sum:site_corrieresport:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[site_ebay]' derivation='Sum' name='[sum:site_ebay:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[site_gazzetta]' derivation='Sum' name='[sum:site_gazzetta:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[site_giallozafferano]' derivation='Sum' name='[sum:site_giallozafferano:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[site_greenme]' derivation='Sum' name='[sum:site_greenme:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[site_kijiji]' derivation='Sum' name='[sum:site_kijiji:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[site_pianetadonna]' derivation='Sum' name='[sum:site_pianetadonna:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[site_pourfemme]' derivation='Sum' name='[sum:site_pourfemme:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[site_repubblica]' derivation='Sum' name='[sum:site_repubblica:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[site_sole24ore]' derivation='Sum' name='[sum:site_sole24ore:qk]' pivot='key' type='quantitative' />
+            <column aggregation='Sum' caption='Uuid' datatype='integer' name='[uuid]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_repubblica:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_ansa:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_gazzetta:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_corriere:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_corrieresport:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_giallozafferano:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_aranzulla:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_sole24ore:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_kijiji:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_alfemminile:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_ebay:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_greenme:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_autoscout:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_pianetadonna:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_pourfemme:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_cookaround:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_repubblica:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_ansa:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_gazzetta:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_corriere:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_corrieresport:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_giallozafferano:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_aranzulla:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_sole24ore:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_kijiji:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_alfemminile:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_ebay:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_greenme:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_autoscout:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_pianetadonna:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_pourfemme:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:site_cookaround:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='categorical' column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Action (Citta_ita)]'>
+            <groupfilter function='level-members' level='[F5]' user:ui-action-filter='[Action2]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Action (Uuid)]'>
+            <groupfilter function='level-members' level='[uuid]' user:ui-action-filter='[Action2]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Tooltip (Uuid)]'>
+            <groupfilter function='level-members' level='[uuid]' user:ui-action-filter='[Action - Most Times Visited sites]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[none:uuid:ok]'>
+            <groupfilter function='level-members' level='[none:uuid:ok]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[:Measure Names]</column>
+            <column>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[none:uuid:ok]</column>
+            <column>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Action (Uuid)]</column>
+            <column>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Action (Citta_ita)]</column>
+            <column>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Tooltip (Uuid)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Multiple Values]' field-type='quantitative' range-type='independent' scope='cols' type='space' />
+            <format attr='title' class='0' field='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Multiple Values]' scope='cols' value='Number of visits' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[:Measure Names]' />
+              <lod column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[:Measure Names]</rows>
+        <cols>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Multiple Values]</cols>
+      </table>
+      <simple-id uuid='{05D4BA85-A4C7-424B-AE77-883B93AF0B28}' />
+    </worksheet>
+    <worksheet name='Traffic'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='data_merged' name='federated.1q9a96t0nzyi811bvx4w71u3oa7p' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1q9a96t0nzyi811bvx4w71u3oa7p'>
+            <column caption='Indicatore di attivita' datatype='real' name='[Calculation_808396189075845123]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[conteggio_giorni_totale]*log([durata_vita])/[durata_vita]' />
+            </column>
+            <column caption='Sites di Notizia' datatype='integer' name='[Calculation_808396189096075287]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([site_corriere]) + &#13;&#10;sum([site_repubblica]) +&#13;&#10;sum([site_ansa]) +&#13;&#10;sum([site_sole24ore])' />
+            </column>
+            <column caption='Sites per Lui' datatype='integer' name='[Calculation_808396189096370200]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([site_autoscout]) +&#13;&#10;sum([site_corrieresport]) +&#13;&#10;sum([site_gazzetta]) +&#13;&#10;sum([site_aranzulla])' />
+            </column>
+            <column caption='Sites di Vendita Online' datatype='integer' name='[Calculation_808396189096587289]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([site_ebay]) +&#13;&#10;sum([site_kijiji]) +&#13;&#10;sum([site_subito])' />
+            </column>
+            <column caption='Sites per Lei' datatype='integer' name='[Calculation_808396189096882202]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([site_alfemminile]) +&#13;&#10;sum([site_cookaround]) +&#13;&#10;sum([site_giallozafferano]) +&#13;&#10;sum([site_pianetadonna]) +&#13;&#10;sum([site_pourfemme]) +&#13;&#10;sum([site_staseratv]) +&#13;&#10;sum([site_greenme])' />
+            </column>
+            <column caption='Sites category' datatype='string' name='[Calculation_808396189100253214]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='if [Calculation_808396189096075287]&gt;[Calculation_808396189096370200] or [Calculation_808396189096075287]&gt;[Calculation_808396189096882202] or [Calculation_808396189096075287]&gt;[Calculation_808396189096587289]&#13;&#10;then &apos;Notizia&apos;&#13;&#10;ELSEIF [Calculation_808396189096370200] &gt; [Calculation_808396189096882202] or [Calculation_808396189096370200]&gt;[Calculation_808396189096587289]&#13;&#10;then &apos;Per Lui&apos;&#13;&#10;ELSEIF [Calculation_808396189096882202] &gt; [Calculation_808396189096587289]&#13;&#10;then &apos;Per Lei&apos;&#13;&#10;else &apos;Vendita Online&apos;&#13;&#10;end' />
+            </column>
+            <column caption='Conteggio Giorni Totale' datatype='integer' name='[conteggio_giorni_totale]' role='measure' type='quantitative' />
+            <column caption='Durata Vita' datatype='integer' name='[durata_vita]' role='measure' type='quantitative' />
+            <column caption='Giorno Min' datatype='date' name='[giorno_min]' role='dimension' type='ordinal' />
+            <column caption='Site Alfemminile' datatype='integer' name='[site_alfemminile]' role='measure' type='quantitative' />
+            <column caption='Site Ansa' datatype='integer' name='[site_ansa]' role='measure' type='quantitative' />
+            <column caption='Site Aranzulla' datatype='integer' name='[site_aranzulla]' role='measure' type='quantitative' />
+            <column caption='Site Autoscout' datatype='integer' name='[site_autoscout]' role='measure' type='quantitative' />
+            <column caption='Site Cookaround' datatype='integer' name='[site_cookaround]' role='measure' type='quantitative' />
+            <column caption='Site Corriere' datatype='integer' name='[site_corriere]' role='measure' type='quantitative' />
+            <column caption='Site Corrieresport' datatype='integer' name='[site_corrieresport]' role='measure' type='quantitative' />
+            <column caption='Site Ebay' datatype='integer' name='[site_ebay]' role='measure' type='quantitative' />
+            <column caption='Site Gazzetta' datatype='integer' name='[site_gazzetta]' role='measure' type='quantitative' />
+            <column caption='Site Giallozafferano' datatype='integer' name='[site_giallozafferano]' role='measure' type='quantitative' />
+            <column caption='Site Greenme' datatype='integer' name='[site_greenme]' role='measure' type='quantitative' />
+            <column caption='Site Kijiji' datatype='integer' name='[site_kijiji]' role='measure' type='quantitative' />
+            <column caption='Site Pianetadonna' datatype='integer' name='[site_pianetadonna]' role='measure' type='quantitative' />
+            <column caption='Site Pourfemme' datatype='integer' name='[site_pourfemme]' role='measure' type='quantitative' />
+            <column caption='Site Repubblica' datatype='integer' name='[site_repubblica]' role='measure' type='quantitative' />
+            <column caption='Site Sole24Ore' datatype='integer' name='[site_sole24ore]' role='measure' type='quantitative' />
+            <column caption='Site Staseratv' datatype='integer' name='[site_staseratv]' role='measure' type='quantitative' />
+            <column caption='Site Subito' datatype='integer' name='[site_subito]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_808396189075845123]' derivation='Sum' name='[sum:Calculation_808396189075845123:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[giorno_min]' derivation='Day-Trunc' name='[tdy:giorno_min:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_808396189100253214]' derivation='User' name='[usr:Calculation_808396189100253214:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='false' />
+        </view>
+        <style />
+        <panes>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189100253214:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#4e79a7' />
+                <format attr='size' value='0.64767956733703613' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[sum:Calculation_808396189075845123:qk]</rows>
+        <cols>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[tdy:giorno_min:qk]</cols>
+      </table>
+      <simple-id uuid='{4AEC4B87-8444-4579-8970-82F2E10870DC}' />
+    </worksheet>
+    <worksheet name='User Site Category'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor='#59a14f'>User Category preference</run>
+            <run>Æ&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='data_merged' name='federated.1q9a96t0nzyi811bvx4w71u3oa7p' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='10000'>
+              <calculation class='tableau' formula='10000' />
+              <range max='10000' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1q9a96t0nzyi811bvx4w71u3oa7p'>
+            <column caption='Sites di Notizia' datatype='integer' name='[Calculation_808396189096075287]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([site_corriere]) + &#13;&#10;sum([site_repubblica]) +&#13;&#10;sum([site_ansa]) +&#13;&#10;sum([site_sole24ore])' />
+            </column>
+            <column caption='Sites per Lui' datatype='integer' name='[Calculation_808396189096370200]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([site_autoscout]) +&#13;&#10;sum([site_corrieresport]) +&#13;&#10;sum([site_gazzetta]) +&#13;&#10;sum([site_aranzulla])' />
+            </column>
+            <column caption='Sites di Vendita Online' datatype='integer' name='[Calculation_808396189096587289]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([site_ebay]) +&#13;&#10;sum([site_kijiji]) +&#13;&#10;sum([site_subito])' />
+            </column>
+            <column caption='Sites per Lei' datatype='integer' name='[Calculation_808396189096882202]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([site_alfemminile]) +&#13;&#10;sum([site_cookaround]) +&#13;&#10;sum([site_giallozafferano]) +&#13;&#10;sum([site_pianetadonna]) +&#13;&#10;sum([site_pourfemme]) +&#13;&#10;sum([site_staseratv]) +&#13;&#10;sum([site_greenme])' />
+            </column>
+            <column caption='Site max value' datatype='integer' name='[Calculation_808396189099130909]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='if [Calculation_808396189096075287]&gt;[Calculation_808396189096370200] or [Calculation_808396189096075287]&gt;[Calculation_808396189096882202] or [Calculation_808396189096075287]&gt;[Calculation_808396189096587289]&#13;&#10;then [Calculation_808396189096075287]&#13;&#10;ELSEIF [Calculation_808396189096370200] &gt; [Calculation_808396189096882202] or [Calculation_808396189096370200]&gt;[Calculation_808396189096587289]&#13;&#10;then [Calculation_808396189096370200]&#13;&#10;ELSEIF [Calculation_808396189096882202] &gt; [Calculation_808396189096587289]&#13;&#10;then [Calculation_808396189096882202]&#13;&#10;else [Calculation_808396189096587289]&#13;&#10;end' />
+            </column>
+            <column caption='Sites category' datatype='string' name='[Calculation_808396189100253214]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='if [Calculation_808396189096075287]&gt;[Calculation_808396189096370200] or [Calculation_808396189096075287]&gt;[Calculation_808396189096882202] or [Calculation_808396189096075287]&gt;[Calculation_808396189096587289]&#13;&#10;then &apos;Notizia&apos;&#13;&#10;ELSEIF [Calculation_808396189096370200] &gt; [Calculation_808396189096882202] or [Calculation_808396189096370200]&gt;[Calculation_808396189096587289]&#13;&#10;then &apos;Per Lui&apos;&#13;&#10;ELSEIF [Calculation_808396189096882202] &gt; [Calculation_808396189096587289]&#13;&#10;then &apos;Per Lei&apos;&#13;&#10;else &apos;Vendita Online&apos;&#13;&#10;end' />
+            </column>
+            <column aggregation='None' caption='Citta_ita' datatype='string' name='[F5]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column-instance column='[uuid]' derivation='None' name='[none:uuid:ok]' pivot='key' type='ordinal' />
+            <column caption='Site Alfemminile' datatype='integer' name='[site_alfemminile]' role='measure' type='quantitative' />
+            <column caption='Site Ansa' datatype='integer' name='[site_ansa]' role='measure' type='quantitative' />
+            <column caption='Site Aranzulla' datatype='integer' name='[site_aranzulla]' role='measure' type='quantitative' />
+            <column caption='Site Autoscout' datatype='integer' name='[site_autoscout]' role='measure' type='quantitative' />
+            <column caption='Site Cookaround' datatype='integer' name='[site_cookaround]' role='measure' type='quantitative' />
+            <column caption='Site Corriere' datatype='integer' name='[site_corriere]' role='measure' type='quantitative' />
+            <column caption='Site Corrieresport' datatype='integer' name='[site_corrieresport]' role='measure' type='quantitative' />
+            <column caption='Site Ebay' datatype='integer' name='[site_ebay]' role='measure' type='quantitative' />
+            <column caption='Site Gazzetta' datatype='integer' name='[site_gazzetta]' role='measure' type='quantitative' />
+            <column caption='Site Giallozafferano' datatype='integer' name='[site_giallozafferano]' role='measure' type='quantitative' />
+            <column caption='Site Greenme' datatype='integer' name='[site_greenme]' role='measure' type='quantitative' />
+            <column caption='Site Kijiji' datatype='integer' name='[site_kijiji]' role='measure' type='quantitative' />
+            <column caption='Site Pianetadonna' datatype='integer' name='[site_pianetadonna]' role='measure' type='quantitative' />
+            <column caption='Site Pourfemme' datatype='integer' name='[site_pourfemme]' role='measure' type='quantitative' />
+            <column caption='Site Repubblica' datatype='integer' name='[site_repubblica]' role='measure' type='quantitative' />
+            <column caption='Site Sole24Ore' datatype='integer' name='[site_sole24ore]' role='measure' type='quantitative' />
+            <column caption='Site Staseratv' datatype='integer' name='[site_staseratv]' role='measure' type='quantitative' />
+            <column caption='Site Subito' datatype='integer' name='[site_subito]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_808396189096075287]' derivation='User' name='[usr:Calculation_808396189096075287:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_808396189096370200]' derivation='User' name='[usr:Calculation_808396189096370200:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_808396189096587289]' derivation='User' name='[usr:Calculation_808396189096587289:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_808396189096882202]' derivation='User' name='[usr:Calculation_808396189096882202:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_808396189099130909]' derivation='User' name='[usr:Calculation_808396189099130909:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_808396189100253214]' derivation='User' name='[usr:Calculation_808396189100253214:nk]' pivot='key' type='nominal' />
+            <column aggregation='Sum' caption='Uuid' datatype='integer' name='[uuid]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Action (Citta_ita)]'>
+            <groupfilter function='level-members' level='[F5]' user:ui-action-filter='[Action2]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[none:uuid:ok]'>
+            <groupfilter count='[Parameters].[Parameter 1]' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='[Calculation_808396189099130909]' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:uuid:ok]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[none:uuid:ok]</column>
+            <column>[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[Action (Citta_ita)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <color column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189100253214:nk]' />
+              <size column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189099130909:qk]' />
+              <tooltip column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189096075287:qk]' />
+              <tooltip column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189096587289:qk]' />
+              <tooltip column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189096882202:qk]' />
+              <tooltip column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189096370200:qk]' />
+              <lod column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[none:uuid:ok]' />
+              <text column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189100253214:nk]' />
+              <text column='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189099130909:qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878' fontsize='12'>L&apos;utente </run>
+                <run bold='true' fontsize='12'>&lt;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[none:uuid:ok]&gt;  </run>
+                <run fontcolor='#787878' fontsize='12'>ha visitato queste categorie di siti:</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878' fontsize='12'>Sites di Notizia:&#9;</run>
+                <run bold='true' fontcolor='#59a14f' fontsize='12'>&lt;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189096075287:qk]&gt;&#9;&#9;</run>
+                <run fontcolor='#787878' fontsize='12'>Sites per Lui:&#9;</run>
+                <run bold='true' fontcolor='#4e79a7' fontsize='12'>&lt;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189096370200:qk]&gt;</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878' fontsize='12'>Sites di Vendita Online:&#9;</run>
+                <run bold='true' fontcolor='#f1ce63' fontsize='12'>&lt;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189096587289:qk]&gt;&#9;&#9;</run>
+                <run fontcolor='#787878' fontsize='12'>Sites per Lei:&#9;</run>
+                <run bold='true' fontcolor='#ff9d9a' fontsize='12'>&lt;[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189096882202:qk]&gt;</run>
+                <run>Æ&#10;&#10;</run>
+                <run bold='true' fontcolor='#000000' fontsize='12'>&lt;Sheet name=&quot;Most Times Visited sites&quot; maxwidth=&quot;400&quot; maxheight=&quot;300&quot; filter=&quot;&lt;All Fields&gt;&quot;&gt;</run>
+                <run>Æ&#10;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='auto' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{CE55978E-2946-4A6F-BB7D-86686F342688}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Browser view'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontcolor='#59a14f'>Device and Browser view</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <datasources>
+        <datasource caption='data_merged' name='federated.1q9a96t0nzyi811bvx4w71u3oa7p' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1q9a96t0nzyi811bvx4w71u3oa7p'>
+        <column caption='Giorno Min' datatype='date' name='[giorno_min]' role='dimension' type='ordinal' />
+        <column-instance column='[giorno_min]' derivation='Year' name='[yr:giorno_min:ok]' pivot='key' type='ordinal' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='10' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='5125' id='11' type='title' w='98400' x='800' y='1000'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone h='92875' id='5' param='horz' type='layout-flow' w='98400' x='800' y='6125'>
+              <zone h='92875' id='3' type='layout-basic' w='98400' x='800' y='6125'>
+                <zone h='46433' id='1' name='Browser più usati' show-title='false' w='98400' x='800' y='6125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='46442' id='7' name='Acquisition per device' w='98400' x='800' y='52558'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='7750' id='8' mode='slider' name='Acquisition per device' param='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[yr:giorno_min:ok]' type='filter' w='16000' x='82200' y='48625' />
+        <zone h='3000' id='12' type='dashboard-object' w='3300' x='94500' y='1625'>
+          <button action='tabdoc:goto-sheet window-id=&quot;{93222731-5555-4247-B4B9-C43CC47680C7}&quot;'>
+            <button-visual-state>
+              <image-path>C:/Users/PC/Documents/Repository personale di Tableau/Forme/Arrows/2-7.png</image-path>
+              <tooltip-text>User Activity</tooltip-text>
+            </button-visual-state>
+          </button>
+        </zone>
+      </zones>
+      <simple-id uuid='{0BB203C2-DF02-4BDA-B9A6-ED5D5791F970}' />
+    </dashboard>
+    <dashboard name='User Activity'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#4e79a7'>Activity of the users</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style>
+        <style-rule element='dash-title'>
+          <format attr='text-align' value='center' />
+        </style-rule>
+      </style>
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <datasources>
+        <datasource name='Parameters' />
+      </datasources>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='10000'>
+          <calculation class='tableau' formula='10000' />
+          <range max='10000' />
+        </column>
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='46' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='43' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+              <zone h='98000' id='36' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+                <zone h='98000' id='33' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+                  <zone h='98000' id='29' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+                    <zone h='98000' id='21' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+                      <zone h='98000' id='16' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+                        <zone h='98000' id='12' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
+                          <zone h='5125' id='13' type='title' w='98400' x='800' y='1000'>
+                            <zone-style>
+                              <format attr='border-color' value='#000000' />
+                              <format attr='border-style' value='none' />
+                              <format attr='border-width' value='0' />
+                              <format attr='margin' value='4' />
+                            </zone-style>
+                          </zone>
+                          <zone h='92875' id='10' type='layout-basic' w='98400' x='800' y='6125'>
+                            <zone h='10375' id='6' name='KPI' show-title='false' w='98400' x='800' y='6125'>
+                              <zone-style>
+                                <format attr='border-color' value='#000000' />
+                                <format attr='border-style' value='none' />
+                                <format attr='border-width' value='0' />
+                                <format attr='margin' value='4' />
+                              </zone-style>
+                            </zone>
+                            <zone h='82500' id='7' name='Map' show-title='false' w='49200' x='800' y='16500'>
+                              <zone-style>
+                                <format attr='border-color' value='#000000' />
+                                <format attr='border-style' value='none' />
+                                <format attr='border-width' value='0' />
+                                <format attr='margin' value='4' />
+                              </zone-style>
+                            </zone>
+                            <zone h='82500' id='44' name='User Site Category' show-title='false' w='49200' x='50000' y='16500'>
+                              <zone-style>
+                                <format attr='border-color' value='#000000' />
+                                <format attr='border-style' value='none' />
+                                <format attr='border-width' value='0' />
+                                <format attr='margin' value='4' />
+                              </zone-style>
+                            </zone>
+                          </zone>
+                        </zone>
+                      </zone>
+                    </zone>
+                  </zone>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='6875' id='9' name='Map' pane-specification-id='0' param='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189105086496:qk]' type='color' w='19100' x='30000' y='92000' />
+        <zone h='3375' id='18' type='dashboard-object' w='4400' x='94500' y='1250'>
+          <button action='tabdoc:goto-sheet window-id=&quot;{B9725B76-7746-48D3-AF97-18AA117C8E84}&quot;'>
+            <button-visual-state>
+              <image-path>C:/Users/PC/Documents/Repository personale di Tableau/Forme/Arrows/2-3.png</image-path>
+            </button-visual-state>
+          </button>
+        </zone>
+        <zone custom-title='true' h='5500' id='48' mode='type_in' param='[Parameters].[Parameter 1]' type='paramctrl' w='16000' x='55700' y='18250'>
+          <formatted-text>
+            <run>Select top N users</run>
+          </formatted-text>
+        </zone>
+        <zone h='12250' id='47' name='User Site Category' pane-specification-id='0' param='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189100253214:nk]' type='color' w='14000' x='84500' y='18375' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <layout-options>
+            <title>
+              <formatted-text>
+                <run bold='true' fontcolor='#4e79a7'>Activity of the users</run>
+              </formatted-text>
+            </title>
+          </layout-options>
+          <size maxheight='1000' minheight='1000' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='70' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='69' param='vert' type='layout-flow' w='84000' x='8000' y='8000'>
+                <zone h='5125' id='13' type='title' w='98400' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='3375' id='18' type='dashboard-object' w='4400' x='94500' y='1250'>
+                  <button action='tabdoc:goto-sheet window-id=&quot;{B9725B76-7746-48D3-AF97-18AA117C8E84}&quot;'>
+                    <button-visual-state>
+                      <image-path>C:/Users/PC/Documents/Repository personale di Tableau/Forme/Arrows/2-3.png</image-path>
+                    </button-visual-state>
+                  </button>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='75' h='10375' id='6' is-fixed='true' name='KPI' show-title='false' w='98400' x='800' y='6125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='82500' id='7' is-fixed='true' name='Map' show-title='false' w='49200' x='800' y='16500'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='6875' id='9' name='Map' pane-specification-id='0' param='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189105086496:qk]' type='color' w='19100' x='30000' y='92000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='82500' id='44' is-fixed='true' name='User Site Category' show-title='false' w='49200' x='50000' y='16500'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='12250' id='47' name='User Site Category' pane-specification-id='0' param='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189100253214:nk]' type='color' w='14000' x='84500' y='18375'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone custom-title='true' h='5500' id='48' mode='type_in' param='[Parameters].[Parameter 1]' type='paramctrl' w='16000' x='55700' y='18250'>
+                  <formatted-text>
+                    <run>Select top N users</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{11056771-719C-4D23-A129-3846DB001A4C}' />
+    </dashboard>
+    <dashboard name='Users behaviour'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontcolor='#f1ce63'>&lt;Sheet Name&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='94000' id='15' param='vert' type='layout-flow' w='98400' x='800' y='5000'>
+            <zone h='94000' id='7' param='horz' type='layout-flow' w='98400' x='800' y='5000'>
+              <zone h='94000' id='5' type='layout-basic' w='98400' x='800' y='5000'>
+                <zone h='94000' id='3' name='Traffic' show-title='false' w='98400' x='800' y='5000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone h='4000' id='19' param='horz' type='layout-flow' w='6200' x='93000' y='1000'>
+            <zone h='4000' id='18' type='dashboard-object' w='3100' x='93000' y='1000'>
+              <button action='tabdoc:goto-sheet window-id=&quot;{93222731-5555-4247-B4B9-C43CC47680C7}&quot;'>
+                <button-visual-state>
+                  <image-path>C:/Users/PC/Documents/Repository personale di Tableau/Forme/Arrows/2-7.png</image-path>
+                  <tooltip-text>User Activity</tooltip-text>
+                </button-visual-state>
+              </button>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone h='4000' id='17' type='dashboard-object' w='3100' x='96100' y='1000'>
+              <button action='tabdoc:goto-sheet window-id=&quot;{01A8BAEA-3D48-47F8-B461-B540B3AB8514}&quot;'>
+                <button-visual-state>
+                  <image-path>C:/Users/PC/Documents/Repository personale di Tableau/Forme/Arrows/2-3.png</image-path>
+                  <tooltip-text>Browser view</tooltip-text>
+                </button-visual-state>
+              </button>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+          </zone>
+          <zone h='4000' id='16' type='title' w='92200' x='800' y='1000'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone forceUpdate='true' h='19250' id='9' type='text' w='34100' x='65000' y='6500'>
+          <formatted-text>
+            <run>Da questo grafico si nota come è cambiato il comportamento degli users  negli ultimi due anni. Molti iniziano a seguire a giugno di ogni anno. Nell&apos; ultimo anno si ha avuto un boom di user che fanno acquisti/vendite online, rispetto al 2018 che preferivano le notizie.&#10;L&apos;indicatore di attività è stato calcolato in questo modo: &#10;[Conteggio Giorni Totale]*log([Durata Vita])/[Durata Vita] ho moltiplicato per il logaritmo per dare più importanza a chi ha una durata vita maggiore.</run>
+          </formatted-text>
+        </zone>
+        <zone h='13875' id='8' name='Traffic' pane-specification-id='4' param='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189100253214:nk]' type='color' w='13100' x='86700' y='24875' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <layout-options>
+            <title>
+              <formatted-text>
+                <run bold='true' fontalignment='1' fontcolor='#f1ce63'>&lt;Sheet Name&gt;</run>
+              </formatted-text>
+            </title>
+          </layout-options>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='41' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='40' param='vert' type='layout-flow' w='84000' x='8000' y='8000'>
+                <zone h='4000' id='16' type='title' w='92200' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='4000' id='18' type='dashboard-object' w='3100' x='93000' y='1000'>
+                  <button action='tabdoc:goto-sheet window-id=&quot;{93222731-5555-4247-B4B9-C43CC47680C7}&quot;'>
+                    <button-visual-state>
+                      <image-path>C:/Users/PC/Documents/Repository personale di Tableau/Forme/Arrows/2-7.png</image-path>
+                      <tooltip-text>User Activity</tooltip-text>
+                    </button-visual-state>
+                  </button>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='4000' id='17' type='dashboard-object' w='3100' x='96100' y='1000'>
+                  <button action='tabdoc:goto-sheet window-id=&quot;{01A8BAEA-3D48-47F8-B461-B540B3AB8514}&quot;'>
+                    <button-visual-state>
+                      <image-path>C:/Users/PC/Documents/Repository personale di Tableau/Forme/Arrows/2-3.png</image-path>
+                      <tooltip-text>Browser view</tooltip-text>
+                    </button-visual-state>
+                  </button>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='94000' id='3' is-fixed='true' name='Traffic' show-title='false' w='98400' x='800' y='5000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='13875' id='8' name='Traffic' pane-specification-id='4' param='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189100253214:nk]' type='color' w='13100' x='86700' y='24875'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone forceUpdate='true' h='19250' id='9' type='text' w='34100' x='65000' y='6500'>
+                  <formatted-text>
+                    <run>Da questo grafico si nota come è cambiato il comportamento degli users  negli ultimi due anni. Molti iniziano a seguire a giugno di ogni anno. Nell&apos; ultimo anno si ha avuto un boom di user che fanno acquisti/vendite online, rispetto al 2018 che preferivano le notizie.&#10;L&apos;indicatore di attività è stato calcolato in questo modo: &#10;[Conteggio Giorni Totale]*log([Durata Vita])/[Durata Vita] ho moltiplicato per il logaritmo per dare più importanza a chi ha una durata vita maggiore.</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{D6086444-B962-4A4D-AD3C-BBD8174D6751}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='dashboard' name='User Activity'>
+      <viewpoints>
+        <viewpoint name='KPI'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Map'>
+          <zoom type='entire-view' />
+          <default-map-tool-selection tool='1' />
+        </viewpoint>
+        <viewpoint name='User Site Category'>
+          <zoom type='fit-height' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{93222731-5555-4247-B4B9-C43CC47680C7}' />
+    </window>
+    <window class='dashboard' name='Users behaviour'>
+      <viewpoints>
+        <viewpoint name='Traffic'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='17' />
+      <simple-id uuid='{B9725B76-7746-48D3-AF97-18AA117C8E84}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Browser view'>
+      <viewpoints>
+        <viewpoint name='Acquisition per device'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Browser più usati'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='8' />
+      <simple-id uuid='{01A8BAEA-3D48-47F8-B461-B540B3AB8514}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Acquisition per device'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[yr:giorno_min:ok]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{5B8D5BFD-E3BF-4B64-BE41-D3D6076E6287}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Browser più usati'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_752664143854292999:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{0B4C65AE-20F1-419A-A879-E4AD30CFC72F}' />
+    </window>
+    <window class='worksheet' hidden='true' name='KPI'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <default-map-tool-selection tool='2' />
+      </viewpoint>
+      <simple-id uuid='{C233A416-256B-4D0E-8DBB-40B6B93C79C0}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Map'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[ctd:uuid:qk]' type='size' />
+            <card pane-specification-id='0' param='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189105086496:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='1' />
+      </viewpoint>
+      <simple-id uuid='{D26A1808-F679-42FF-B39D-92BBB21E4A67}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Most Times Visited sites'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <default-map-tool-selection tool='2' />
+      </viewpoint>
+      <simple-id uuid='{79FE4CA3-2C4F-486D-9B94-749620EB2022}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Traffic'>
+      <cards>
+        <edge name='left'>
+          <strip size='239'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='4' param='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189100253214:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-height' />
+        <default-map-tool-selection tool='2' />
+      </viewpoint>
+      <simple-id uuid='{B17E0030-0B6D-4A24-9B7A-C30809A67793}' />
+    </window>
+    <window class='worksheet' hidden='true' name='User Site Category'>
+      <cards>
+        <edge name='left'>
+          <strip size='300'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1q9a96t0nzyi811bvx4w71u3oa7p].[usr:Calculation_808396189100253214:nk]' type='color' />
+            <card mode='type_in' param='[Parameters].[Parameter 1]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='2' />
+      </viewpoint>
+      <simple-id uuid='{6BA4AF15-3E49-4FDF-9AAC-2F4C8736790D}' />
+    </window>
+  </windows>
+</workbook>
